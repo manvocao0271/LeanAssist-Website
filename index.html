@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeanAssist: Open-Source & Model-Agnostic LLM Proof Assistance</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px 40px;
+            background-color: #fff;
+            margin-bottom: 40px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            font-weight: 300;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .authors {
+            font-size: 1.2em;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .institution {
+            font-size: 1em;
+            color: #777;
+            margin-bottom: 20px;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .nav-buttons a {
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #4a5568;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 0.9em;
+            transition: background-color 0.3s;
+        }
+
+        .nav-buttons a:hover {
+            background-color: #2d3748;
+        }
+
+        .nav-buttons a::before {
+            content: "📄";
+            margin-right: 8px;
+        }
+
+        .nav-buttons a:first-child::before {
+            content: "💻";
+        }
+
+        .video-section {
+            background-color: #fff;
+            padding: 40px;
+            margin-bottom: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            background-color: #000;
+            border-radius: 8px;
+        }
+
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .content-section {
+            background-color: #fff;
+            padding: 40px;
+            margin-bottom: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            font-size: 2em;
+            font-weight: 400;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        h3 {
+            font-size: 1.3em;
+            font-weight: 500;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: #555;
+            font-size: 1.05em;
+        }
+
+        .highlight {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #777;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            .content-section {
+                padding: 25px;
+            }
+
+            .nav-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .nav-buttons a {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><strong>LeanAssist: Open-Source & Model-Agnostic LLM Proof Assistance</strong></h1>
+        <div class="authors">Rey Riordan, Man Cao</div>
+        <div class="institution">Rutgers University - New Brunswick</div>
+    </header>
+
+    <div class="container">
+        <!-- Video Section -->
+        <div class="video-section">
+            <h2>Project Overview</h2>
+            <div class="video-container">
+                <!-- Replace 'demo.mp4' with your actual video filename -->
+                <video controls>
+                    <source src="demo.mp4" type="video/mp4">
+                    <source src="demo.webm" type="video/webm">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+
+        <!-- Project Overview Section -->
+        <div class="content-section">
+            <h2>About This Project</h2>
+            <p>
+                LeanAssist is an open source proof assistant for the Lean theorem prover. It uses large language models to suggest tactics and help 
+                users complete formal proofs inside Lean.
+            </p>
+        </div>
+
+        <!-- Key Contributions Section -->
+        <div class="content-section">
+            <h2>Key Contributions</h2>
+            
+            <h3>Universal Model Benchmarking Framework</h3>
+            <p>
+                We built a proof search algorithm in Python that can test any large language model on the LeanDojo datasets. It uses OpenRouter 
+                and Fireworks so it is easy to swap between different models.
+            </p>
+
+            <h3>Fine Tuning Dataset Generator</h3>
+            <p>
+                We wrote a tool that turns LeanDojo theorem data into simple question and answer style conversations. These conversations can be 
+                used directly for training models on theorem proving.
+            </p>
+
+            <h3>Model Agnostic LeanCopilot Integration</h3>
+            <p>
+                We updated LeanCopilot so it can call any model through one shared interface. A user can register a new model with a small change 
+                in the configuration and then use it to get tactic suggestions in their editor.
+            </p>
+        </div>
+
+        <!-- Results Section -->
+        <div class="content-section">
+            <h2>Results</h2>
+            <p>
+                We tested DeepSeek V3.2 on 100 theorems from each LeanDojo Lean 4 test set. On the random split it solved about one 
+                quarter of the problems and on the harder novel premises split it solved a similar number of problems as the ReProver model.
+            </p>
+            <p>
+                We also fine tuned a smaller model called Qwen3 8B on a custom dataset that we generated from LeanDojo. This run showed that 
+                our tools for building datasets and training models work correctly and are ready for larger experiments when more resources are 
+                available.
+            </p>
+        </div>
+
+        <!-- Download Section -->
+        <div class="content-section" style="text-align: center;">
+            <h2>Resources</h2>
+            <p style="margin-bottom: 30px;">Access our research paper and explore the code repository.</p>
+            <div style="display: flex; flex-direction: row; gap: 15px; align-items: center; justify-content: center; flex-wrap: wrap;">
+                <a href="Math495 Final Paper.pdf" download style="display: inline-block; padding: 15px 30px; background-color: #3182ce; color: white; text-decoration: none; border-radius: 5px; font-weight: 500; transition: background-color 0.3s; min-width: 250px;">
+                    📥 Download Research Paper (PDF)
+                </a>
+                <a href="https://github.com/ReyRiordan/LeanAssist" target="_blank" style="display: inline-block; padding: 15px 30px; background-color: #3182ce; color: white; text-decoration: none; border-radius: 5px; font-weight: 500; transition: background-color 0.3s; min-width: 250px;">
+                    💻 View on GitHub
+                </a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
